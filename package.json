@@ -1,0 +1,16 @@
+{
+  "name": "david-test-app",
+  "version": "0.1.0",
+  "author": {
+    "name": "David",
+    "email": "david.huang@blastradius.com"
+  },
+  "dependencies": {
+    "express": "~2.5.10",
+    "socket.io": "~0.9.6",
+    "redis": "~0.7.2"
+  },
+  "engines": {
+    "node": ">=0.4"
+  }
+}
