@@ -1,15 +1,15 @@
 var express = require('express'),
     app = express.createServer(),
     io = require('socket.io').listen(app),
-    redis = require('redis'),
-    redisClient = redis.createClient(9386,'koi.redistogo.com');
+    redis = require('redis-url'),
+    redisClient = redis.connect(process.env.REDISTOGO_URL);
+);
 
 /* Redis */
-//redis://nodejitsu:5b1913c44ccc1629110fc7a597f17a77@koi.redistogo.com:9386
-redisClient.auth('5b1913c44ccc1629110fc7a597f17a77');
+redis.set('foo', 'bar');
 
-redisClient.on("error", function (err) {
-    console.log("Error " + err);
+redis.get('foo', function(err, value)) {
+  console.log('foo is: ' + value);
 });
 
 
