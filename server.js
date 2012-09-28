@@ -1,7 +1,7 @@
 var express = require('express'),
     app = express.createServer(),
-    io = require('socket.io').listen(app),
-    redis = require('redis-url').connect(process.env.REDISTOGO_URL);
+    io = require('socket.io').listen(app);
+    //redis = require('redis-url').connect(process.env.REDISTOGO_URL);
 
 /* Redis */
 /*
