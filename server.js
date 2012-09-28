@@ -4,12 +4,13 @@ var express = require('express'),
     redis = require('redis-url').connect(process.env.REDISTOGO_URL);
 
 /* Redis */
+/*
 redis.set('foo', 'bar');
 
 redis.get('foo', function(err, value) {
   console.log('foo is: ' + value);
 });
-
+*/
 
 /* Express Setup */
 app.configure(function(){
