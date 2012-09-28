@@ -28,7 +28,7 @@ app.get("/", function(req, res) {
   res.redirect("/index.html");
 });
 
-app.listen(80);
+app.listen(8080);
 console.log('Server started...');
 
 
@@ -40,7 +40,7 @@ io.configure(function () {
 });
 
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', 'News : You connectd!');
+  socket.emit('news', 'News : You connected!');
   socket.on('message', function(message) {
      socket.broadcast.send(message);
   });
