@@ -1,16 +1,16 @@
 var express = require('express'),
     app = express.createServer(),
-    io = require('socket.io').listen(app);
-    //redis = require('redis-url').connect(process.env.REDISTOGO_URL);
+    io = require('socket.io').listen(app),
+    redis = require('redis-url').connect(process.env.REDISTOGO_URL);
 
 /* Redis */
-/*
+
 redis.set('foo', 'bar');
 
 redis.get('foo', function(err, value) {
   console.log('foo is: ' + value);
 });
-*/
+
 
 /* Express Setup */
 var port = process.env.PORT || 3000;
