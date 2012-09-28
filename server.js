@@ -3,12 +3,11 @@ var express = require('express'),
     io = require('socket.io').listen(app),
     redis = require('redis-url'),
     redisClient = redis.connect(process.env.REDISTOGO_URL);
-);
 
 /* Redis */
 redis.set('foo', 'bar');
 
-redis.get('foo', function(err, value)) {
+redis.get('foo', function(err, value) {
   console.log('foo is: ' + value);
 });
 
@@ -35,6 +34,11 @@ console.log('Server started...');
 
 
 /* Sockets */
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
+
 io.sockets.on('connection', function (socket) {
   socket.emit('news', 'News : You connectd!');
   socket.on('message', function(message) {
