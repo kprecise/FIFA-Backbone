@@ -13,6 +13,8 @@ redis.get('foo', function(err, value) {
 */
 
 /* Express Setup */
+var port = process.env.PORT || 3000;
+
 app.configure(function(){
   app.use(express.methodOverride());
   app.use(express.bodyParser());
@@ -28,7 +30,7 @@ app.get("/", function(req, res) {
   res.redirect("/index.html");
 });
 
-app.listen(8080);
+app.listen(port);
 console.log('Server started...');
 
 
