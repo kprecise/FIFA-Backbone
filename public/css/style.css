@@ -1,2 +1,33 @@
-article {
+body {
+    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+
+/* Home View */
+
+.home-hero {
+    color: white;
+    background-image: url('/img/bg2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: -19px;
+    padding: 180px;
+    text-align : center;
+    text-shadow: 1px 1px 1px #000;
+}
+
+/* New Tournament View */
+
+.new-template h1, 
+.new-template p {
+	text-align: center;
+}
+
+.new-template form {
+	width: 500px;
+	margin: auto;
+}
+
+.new-template form legend {
+    text-align: center;
+    text-transform: uppercase;
 }

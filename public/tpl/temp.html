@@ -1,0 +1,42 @@
+<div id="setup-step2">
+    <ul class="team-list">
+          <li><strong>Teams</strong></li>
+          <% _.each(teamNum, function(num) { %>
+          <li>
+              <label>Team <%= num %>:</label>
+          <select name="team">
+                  <% collection.each(function(team) { %>
+                  <option value="<%= team.get('name') %>"><%= team.get('name') %></option>
+                  <% }); %>
+          </select>
+          </li>
+          <% }); %>
+      </ul>
+
+      <ul class="seed-one-list">
+          <li><strong>Seed 1</strong></li>
+          <% _.each(teamNum, function(num) { %>
+          <li>
+              <label>Player name:</label>
+              <input type="text" placeholder="Computer" />
+          </li>
+          <% }); %>
+      </ul>
+
+      <% if (doubles) { %>
+      <ul class="seed-two-list">
+          <li><strong>Seed 2</strong></li>
+          <% _.each(teamNum, function(num) { %>
+          <li>
+              <label>Player name:</label>
+              <input type="text" placeholder="Computer" />
+          </li>
+          <% }); %>
+      </ul>
+    <% } %>
+
+      <button id="randomize-btn">Randomize</button>
+
+      <table cellpadding="4" cellspacing="1"></table>
+      <button id="start-tournament-btn">Start Tournament</button>
+  </div>

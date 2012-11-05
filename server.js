@@ -7,9 +7,7 @@ var express = require('express'),
 
 redis.set('foo', 'bar');
 
-redis.get('foo', function(err, value) {
-  console.log('foo is: ' + value);
-});
+
 
 
 /* Express Setup */
@@ -43,6 +41,9 @@ io.configure(function () {
 
 io.sockets.on('connection', function (socket) {
   socket.emit('news', 'News : You connected!');
+  redis.get('foo', function(err, value) {
+    socket.emit('news', 'foo is: ' + value);
+  });
   socket.on('message', function(message) {
      socket.broadcast.send(message);
   });
