@@ -2,9 +2,6 @@
 //REQUIRE MODULES
 
 var mongoose = require('mongoose');
-mongoose.on("error", function(err) {
-  console.log("Mongoose error: " + err);
-});
 
 //CONFIG DB
 
