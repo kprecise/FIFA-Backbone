@@ -2,8 +2,8 @@
 // REQUIRE MODULES AND GLOBAL VARIABLES
 
 var express = require("express"),
-    path = require("path");
-    //webservices = require('./routes/crud');
+    path = require("path"),
+    webservices = require('./routes/crud');
 
 var application_root = __dirname,
     port = process.env.PORT || 3000;
