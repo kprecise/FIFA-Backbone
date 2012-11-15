@@ -9,7 +9,7 @@ var db_url = process.env.MONGOHQ_URL || "mongodb://heroku:test123@alex.mongohq.c
 db = mongoose.connect(db_url);
 
 //DEFINE SCHEMA AND COLLECTION
-
+/*
 Schema = mongoose.Schema;
 var Product = new Schema({  
     title: { type: String, required: true },  
@@ -214,3 +214,4 @@ exports.deleteTeamById = function (req, res){
     }
   });
 };
+*/
