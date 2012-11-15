@@ -15,7 +15,7 @@ var Team = new Schema({
   name: { type:String, required: true}
 });
 
-var TeamModel = db.model('Team', Team);
+var TeamModel = mongoose.model('Team', Team);
 
 /*
 Schema = mongoose.Schema;
