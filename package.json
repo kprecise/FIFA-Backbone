@@ -7,11 +7,10 @@
   },
   "dependencies": {
     "express": "~2.5.10",
-    "mongodb": ">= 1.0.2",
-    "mongoose": ">= 2.0.0"
+    "mongoose": "2.6.x"
   },
   "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
+    "node": "0.8.14",
+    "npm": "1.1.65"
   }
 }
