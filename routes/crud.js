@@ -9,6 +9,13 @@ var db_url = process.env.MONGOHQ_URL || "mongodb://heroku:test123@alex.mongohq.c
 db = mongoose.connect(db_url);
 
 //DEFINE SCHEMA AND COLLECTION
+
+var Team = new Schema({
+  name: { type:String, required: true}
+});
+
+var TeamModel = mongoose.model('Team', Team);
+
 /*
 Schema = mongoose.Schema;
 var Product = new Schema({  
