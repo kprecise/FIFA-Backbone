@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
 
 var db_url = process.env.MONGOHQ_URL || "mongodb://heroku:test123@alex.mongohq.com:10074/app7958459",
 db = mongoose.connect(db_url);
+Schema = mongoose.Schema;
 
 //DEFINE SCHEMA AND COLLECTION
 
@@ -14,7 +15,7 @@ var Team = new Schema({
   name: { type:String, required: true}
 });
 
-var TeamModel = mongoose.model('Team', Team);
+var TeamModel = db.model('Team', Team);
 
 /*
 Schema = mongoose.Schema;
