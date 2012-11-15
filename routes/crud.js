@@ -5,8 +5,17 @@ var mongoose = require('mongoose');
 
 //CONFIG DB
 
+var mongo_status = "not connected";
+
 var db_url = process.env.MONGOHQ_URL || "mongodb://heroku:test123@alex.mongohq.com:10074/app7958459",
-db = mongoose.connect(db_url);
+db = mongoose.connect(db_url, function(err) {
+  mongo_status = err;
+});
+
+mongoose.connection.on('open', function (err) {
+ mongo_status = "connected";
+});
+
 Schema = mongoose.Schema;
 
 //DEFINE SCHEMA AND COLLECTION
@@ -40,19 +49,13 @@ var Tournament = new Schema({
     complete: { type: Boolean}
 });
 
-var Team = new Schema({
-  name: { type:String, required: true}
-});
-
-var TeamModel = mongoose.model('Team', Team);
-
 var ProductModel = mongoose.model('Product', Product);  
 */
 
 //REST SERVICES
 
 exports.showStatus = function (req, res) {
-  res.send('Web services is running correctly.');
+  res.send('Web services: Connected | ' + 'Mongoose: ' + mongo_status);
 };
 
 exports.addTeam = function(req, res) {
