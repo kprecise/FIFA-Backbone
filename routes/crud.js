@@ -47,6 +47,7 @@ var Team = new Schema({
 var TeamModel = mongoose.model('Team', Team);
 
 var ProductModel = mongoose.model('Product', Product);  
+*/
 
 //REST SERVICES
 
@@ -222,4 +223,3 @@ exports.deleteTeamById = function (req, res){
     }
   });
 };
-*/

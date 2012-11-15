@@ -20,6 +20,7 @@ app.configure(function () {
   app.use(express.static(path.join(application_root, "public")));
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
+
 /*
 app.get('/webservices', webservices.showStatus);
 app.get('/webservices/list', webservices.findAll);
@@ -29,13 +30,13 @@ app.put('/webservices/update/:id', webservices.updateById);
 app.delete('/webservices/delete/:id', webservices.deleteById);
 app.get('/webservices/deleteAll', webservices.deleteAll);
 app.get('/webservices/populate', webservices.populate);
-
+*/
 
 app.get('/webservices/teams/list', webservices.findTeams);
 app.post('/webservices/teams', webservices.addTeam);
 app.get('/webservices/teams/:id', webservices.findTeamById);
 app.delete('/webservices/teams/:id', webservices.deleteTeamById);
-*/
+
 
 // LAUNCH SERVER
 
