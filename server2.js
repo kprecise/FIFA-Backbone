@@ -37,7 +37,6 @@ app.configure(function () {
 });
 
 /*
-app.get('/webservices', webservices.showStatus);
 app.get('/webservices/list', webservices.findAll);
 app.post('/webservices/create', webservices.create);
 app.get('/webservices/find/:id', webservices.findById);
@@ -47,6 +46,7 @@ app.get('/webservices/deleteAll', webservices.deleteAll);
 app.get('/webservices/populate', webservices.populate);
 */
 
+app.get('/webservices', webservices.showStatus);
 app.get('/webservices/teams/list', webservices.findTeams);
 app.post('/webservices/teams', webservices.addTeam);
 app.get('/webservices/teams/:id', webservices.findTeamById);

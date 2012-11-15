@@ -55,6 +55,63 @@ exports.showStatus = function (req, res) {
   res.send('Web services is running correctly.');
 };
 
+exports.addTeam = function(req, res) {
+    console.log("POST: " + req.body);
+    var team = new TeamModel({
+      name: req.body.name
+    });
+    team.save(function (err) {
+      if (!err) {
+        console.log("Created new team");
+      } else {
+        console.log(err);
+      }
+    });
+    res.send(team);
+}
+
+exports.findTeamById = function (req, res){
+  TeamModel.findById(req.params.id, function (err, team) {
+    if (!err) {
+      res.send(team);
+    } else {
+      console.log(err);
+      res.send(err);
+    }
+  });
+};
+
+exports.findTeams = function (req, res){
+  TeamModel.find(function (err, teams) {
+    if (!err) {
+      res.send(teams);
+    } else {
+      console.log(err);
+      res.send(err);
+    }
+  });
+};
+
+exports.deleteTeamById = function (req, res){
+  TeamModel.findById(req.params.id, function (err, team) {
+    if (team) {
+      team.remove(function (err) {
+        if (!err) {
+          console.log("Team removed");
+          res.send('');
+        } else {
+          console.log(err);
+        }
+      });
+    } else {
+      console.log('Error - Product does not exist!');
+      res.send('Error - Product does not exist!');
+    }
+  });
+};
+
+
+/*
 exports.findAll = function (req, res){
   ProductModel.find(function (err, products) {
     if (!err) {
@@ -170,56 +227,5 @@ exports.populate = function (req, res) {
     });
 };
 
-exports.addTeam = function(req, res) {
-    var team = req.body;
-    console.log("POST: " + req.body);
-    team = new TeamModel({
-      name: req.body.name
-    });
-    team.save(function (err) {
-      if (!err) {
-        console.log("Created new team");
-      } else {
-        console.log(err);
-      }
-    });
-    res.send(team);
-}
 
-exports.findTeamById = function (req, res){
-  TeamModel.findById(req.params.id, function (err, team) {
-    if (!err) {
-      res.send(team);
-    } else {
-      console.log(err);
-    }
-  });
-};
-
-exports.findTeams = function (req, res){
-  TeamModel.find(function (err, teams) {
-    if (!err) {
-      res.send(teams);
-    } else {
-      console.log(err);
-    }
-  });
-};
-
-exports.deleteTeamById = function (req, res){
-  TeamModel.findById(req.params.id, function (err, team) {
-    if (team) {
-      team.remove(function (err) {
-        if (!err) {
-          console.log("Team removed");
-          res.send('');
-        } else {
-          console.log(err);
-        }
-      });
-    } else {
-      console.log('Error - Product does not exist!');
-      res.send('Error - Product does not exist!');
-    }
-  });
-};
+*/
