@@ -5,6 +5,8 @@
 
 ## Setting up local environment:
 1. Install Heroku Toolbelt: https://toolbelt.heroku.com/
+2. Open cmd prompt or console
+3. Type in "heroku login"
 
 ## To run the app locally:
 1. Open cmd prompt or console
@@ -23,6 +25,6 @@
 
 # Tasks
 
-* David: Setup/document initial structure, complete Teams page.
-* Kyri: Complete Players page.
+* David: Setup/document initial structure, complete Teams page. Help out with Login and Tournaments page afterwards.
+* Kyri: Complete Players page and login functionality. Help out with Tournaments page afterwards.
 * Jason: Complete initial Tournaments page.
