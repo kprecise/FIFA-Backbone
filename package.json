@@ -1,14 +1,27 @@
 {
-  "name": "david-test-app",
-  "version": "0.2.0",
-  "author": {
-    "name": "David",
-    "email": "david.huang@blastradius.com"
-  },
+  "name": "fifa-tournament-app",
+  "version": "1.0.0",
+  "author": "BlastRadius <tech@blastradius.com>",
+  "description": "A simple Fifa Tournament Tracking app",
+  "contributors": [ 
+    {
+      "name": "David Huang",
+      "email": "David.Huang@blastradius.com"
+    },
+    {
+      "name": "Jason Slaughter",
+      "email": "Jason.Slaughter@blastradius.com"
+    },
+    {
+      "name": "Kyriakos Kyriacou",
+      "email": "Kyriakos.Kyriacou@blastradius.com"
+    }
+  ],
   "dependencies": {
     "express": "2.5.11",
     "mongoose": "2.6.8"
   },
+  "license": "MIT",
   "engines": {
     "node": "0.8.14",
     "npm": "1.1.65"
