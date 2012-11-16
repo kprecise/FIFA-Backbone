@@ -16,15 +16,25 @@ mongoose.connection.on('open', function (err) {
  mongo_status = "connected";
 });
 
-Schema = mongoose.Schema;
 
 //DEFINE SCHEMA AND COLLECTION
 
-var Team = new Schema({
-  name: { type:String, required: true}
+var teamSchema = new mongoose.Schema({
+  name: { type:String, required: true }
 });
 
-var TeamModel = db.model('team', Team);
+var TeamModel = db.model('team', teamSchema);
+
+var teamTest  = new TeamModel({
+  name: 'Test-team'
+});
+teamTest.save(function(err) {
+  if (!err) {
+    console.log("Created new team");
+  } else {
+    console.log(err);
+  }
+});
 
 //REST SERVICES
 
@@ -49,7 +59,7 @@ exports.addTeam = function(req, res) {
 
 exports.findTeamById = function (req, res){
   TeamModel.findById(req.params.id, function (err, team) {
-    if (!err) {
+    if (!err) { 
       res.send(team);
     } else {
       console.log(err);
