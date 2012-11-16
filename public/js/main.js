@@ -71,9 +71,8 @@ require([
 
         addTeam: function() {
             var teamCollection = new TeamCollection();
-            var team = new Team();
             teamCollection.fetch({success: function() {
-                $('#content').html(new TeamView({collection:teamCollection, model: team}).el);
+                $('#content').html(new TeamView({collection:teamCollection}).el);
             }});
 
             this.headerView.selectMenuItem('add-team-menu');

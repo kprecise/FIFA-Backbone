@@ -15,7 +15,7 @@ define([
 	    },
 
 	    render:function () {
-	        $(this.el).html(this.template({model:this.model.toJSON(),collection:this.collection}));
+	        $(this.el).html(this.template({collection:this.collection}));
 	        return this;
 	    },
 
@@ -25,7 +25,9 @@ define([
 	        
 	        var self = this;
 
-	        this.model.save({name:$('#inputName').val()}, {
+	        var team = new Team();
+
+	        team.save({name:$('#inputName').val()}, {
 	            success: function (model) {
 	            	Backbone.history.loadUrl();
 	            },
