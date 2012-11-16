@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 
 var mongo_status = "not connected";
 
-var db_url = process.env.MONGOHQ_URL || "mongodb://heroku:test123@alex.mongohq.com:10074/app7958459",
+var db_url = "mongodb://heroku:test123@alex.mongohq.com:10074/app7958459" || process.env.MONGOHQ_URL,
 db = mongoose.connect(db_url, function(err) {
   mongo_status = err;
 });
@@ -74,7 +74,7 @@ exports.findTeams = function (req, res){
       res.send(teams);
     } else {
       console.log(err);
-      res.send(err);
+      res.send('error');
     }
   });
 };
