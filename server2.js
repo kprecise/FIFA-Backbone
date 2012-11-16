@@ -36,15 +36,6 @@ app.configure(function () {
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
-/*
-app.get('/webservices/list', webservices.findAll);
-app.post('/webservices/create', webservices.create);
-app.get('/webservices/find/:id', webservices.findById);
-app.put('/webservices/update/:id', webservices.updateById);
-app.delete('/webservices/delete/:id', webservices.deleteById);
-app.get('/webservices/deleteAll', webservices.deleteAll);
-app.get('/webservices/populate', webservices.populate);
-*/
 
 app.get('/webservices', webservices.showStatus);
 app.get('/webservices/teams/list', webservices.findTeams);
