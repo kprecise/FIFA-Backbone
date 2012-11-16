@@ -15,12 +15,14 @@
         <tr>
           <th>ID</th>
           <th>Team Name</th>
+          <th>Ranking</th>
           <th>Action</th>
         </tr>
         <% collection.each(function(team) { %>
         <tr>
           <td class="team-id"><%= team.get('_id') %></td>
           <td class="team-name"><%= team.get('name') %></td>
+          <td class="team-ranking"><%= team.get('ranking') %></td>
           <td><button class="btn-link remove-btn"><i class="icon-remove"></i></button></td>
         </tr>
         <% }); %>
@@ -28,12 +30,32 @@
     </div>
 
     <div class="span6">
-      <form class="form-inline">
+      <form class="form form-horizontal">
         <legend>Add a new team:</legend>
-        <label for="inputName" class="control-label">Name: </label>
-        <input type="text" id="inputName" placeholder="e.g. Tottenham Hotspur" value="">
-        <span class="help-inline"></span>
-        <button id="add-team-btn" class="btn btn-primary">Add</button>
+        <div class="control-group">
+          <label for="teamName" class="control-label">Name: </label>
+          <div class="controls">
+            <input type="text" id="teamName" placeholder="e.g. Tottenham Hotspur" value="">
+            <span class="help-inline"></span>
+          </div>
+        </div>
+        <div class="control-group">
+          <label for="teamRanking" class="control-label">Ranking: </label>
+          <div class="controls">
+            <select id="teamRanking">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="4">5</option>
+            </select>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <button id="add-team-btn" class="btn btn-primary">Add</button>
+          </div>
+        </div>
       </form>
     </div>
   </div>

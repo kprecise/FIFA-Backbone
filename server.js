@@ -1,50 +1,36 @@
-var express = require('express'),
-    app = express.createServer(),
-    io = require('socket.io').listen(app),
-    redis = require('redis-url').connect(process.env.REDISTOGO_URL);
 
-/* Redis */
+// REQUIRE MODULES AND SET UP GLOBAL VARIABLES
 
-redis.set('foo', 'bar');
+var express = require("express"),
+    path = require("path"),
+    webservices = require('./mongo-config');
 
+var application_root = __dirname,
+    port = process.env.PORT || 3000;
 
+// CONFIG EXPRESS SERVER
 
+var app = express.createServer();
 
-/* Express Setup */
-var port = process.env.PORT || 3000;
-
-app.configure(function(){
-  app.use(express.methodOverride());
+app.configure(function () {
   app.use(express.bodyParser());
-  app.use(express.static(__dirname + '/public'));
-  app.use(express.errorHandler({
-    dumpExceptions: true, 
-    showStack: true
-  }));
+  app.use(express.methodOverride());
+  //app.use(express.logger('dev'));  /* 'default', 'short', 'tiny', 'dev' */
   app.use(app.router);
+  app.use(express.static(path.join(application_root, "public")));
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
-app.get("/", function(req, res) {
-  res.redirect("/index.html");
-});
+//SET UP WEB SERVICES
+
+app.get('/webservices', webservices.showStatus);
+app.get('/webservices/teams/list', webservices.findTeams);
+app.post('/webservices/teams', webservices.addTeam);
+app.get('/webservices/teams/:id', webservices.findTeamById);
+app.delete('/webservices/teams/:id', webservices.deleteTeamById);
+
+
+// LAUNCH SERVER
 
 app.listen(port);
-console.log('Server started...');
-
-
-
-/* Sockets */
-io.configure(function () { 
-  io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
-});
-
-io.sockets.on('connection', function (socket) {
-  socket.emit('news', 'News : You connected!');
-  redis.get('foo', function(err, value) {
-    socket.emit('news', 'foo is: ' + value);
-  });
-  socket.on('message', function(message) {
-     socket.broadcast.send(message);
-  });
-});
+console.log('Server started on port: '+ port);

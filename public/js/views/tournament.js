@@ -8,9 +8,17 @@ define([
 	        this.render();
 	    },
 
+	    events: {
+	    	"click #start-btn" : "createTournament"
+	    },
+
 	    render:function () {
 	        $(this.el).html(this.template());
 	        return this;
+	    },
+
+	    createTournament:function() {
+	    	console.log("Not implemented yet.");
 	    }
 
 	});

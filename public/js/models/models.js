@@ -11,10 +11,11 @@ define([
 
 		defaults: {
 			_id: null,
-			name: "Team BR"
+			name: "Team Name",
+			ranking: 5
 		},
 		validate: function(attrs) {
-			if (attrs.name.length < 0) {
+			if (attrs.name.length < 1) {
 				return "You must enter a name.";
 			}
 		}
@@ -28,8 +29,6 @@ define([
 
 		model: Team,
 
-		initialize: function (models, options) {
-		}
 	});
 
 	window.Tournament = Backbone.Model.extend({

@@ -27,12 +27,12 @@ define([
 
 	        var team = new Team();
 
-	        team.save({name:$('#inputName').val()}, {
+	        team.save({name:$('#teamName').val(),ranking:$('#teamRanking option:selected').val()}, {
 	            success: function (model) {
 	            	Backbone.history.loadUrl();
 	            },
-	            error: function (message) {
-	                $('#inputTeam').parents('.control-group').addClass('error').find('.help-inline').html(message);
+	            error: function(model, error) {
+	                $('#teamName').parents('.control-group').addClass('error').find('.help-inline').html(error);
 	            }
 	        });
 	    },
@@ -40,7 +40,7 @@ define([
 	    removeTeam: function (ev) {
 	    	//Remove the team
 	    	$(ev.target).parents('tr').remove();
-	    	console.log();
+
 	    	var teamId = parseInt($(ev.target).parents('td').siblings('.team-id').html());
 
 		    jQuery.ajax({
@@ -53,8 +53,6 @@ define([
 		          console.dir(jqXHR); 
 		      }
 		    });
-
-	    	//window.app.navigate('teams', {trigger: true, replace: true});
 	    }
 
 	});

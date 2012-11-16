@@ -20,7 +20,8 @@ mongoose.connection.on('open', function (err) {
 //DEFINE SCHEMA AND COLLECTION
 
 var teamSchema = new mongoose.Schema({
-  name: { type:String, required: true }
+  name: { type:String, required: true },
+  ranking: { type:Number, required: true }
 });
 
 var TeamModel = db.model('team', teamSchema);
@@ -35,16 +36,18 @@ exports.showStatus = function (req, res) {
 exports.addTeam = function(req, res) {
     console.log("POST: " + req.body);
     var team = new TeamModel({
-      name: req.body.name
+      name: req.body.name,
+      ranking: req.body.ranking
     });
     team.save(function (err) {
       if (!err) {
         console.log("Created new team");
+        res.send(team);
       } else {
         console.log(err);
+        res.send(err);
       }
     });
-    res.send(team);
 }
 
 exports.findTeamById = function (req, res){
