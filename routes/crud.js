@@ -25,16 +25,6 @@ var teamSchema = new mongoose.Schema({
 
 var TeamModel = db.model('team', teamSchema);
 
-var teamTest  = new TeamModel({
-  name: 'Test-team'
-});
-teamTest.save(function(err) {
-  if (!err) {
-    console.log("Created new team");
-  } else {
-    console.log(err);
-  }
-});
 
 //REST SERVICES
 
