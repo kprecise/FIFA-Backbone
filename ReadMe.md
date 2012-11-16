@@ -18,6 +18,7 @@
 4. Type in "git commit -m '<Update message>'"
 4. Type in "git push heroku master"
 5. Restart the heroku app by typing: "heroku restart"
+
 *Detailed documentations here: https://devcenter.heroku.com/articles/nodejs*
 
 # Tasks
