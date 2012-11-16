@@ -35,6 +35,7 @@ require.config({
 require([
     'jquery',
     'backbone',
+    'bootstrap',
     'utils',
     'models/models',
     'views/header',
