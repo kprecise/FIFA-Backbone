@@ -1,4 +1,5 @@
 define([
+	//Add the libraries we need for the following section
     'backbone'
   ], function(Backbone) {
 

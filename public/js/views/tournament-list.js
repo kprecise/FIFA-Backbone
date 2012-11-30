@@ -1,4 +1,5 @@
 define([
+	//Add the libraries we need for the following section
     'backbone'
   ], function(Backbone) {
 
@@ -9,8 +10,9 @@ define([
 	    },
 
 	    render:function () {
-	        $(this.el).html(this.template());
-	        return this;
+	    	//Update content container with template
+        $(this.el).html(this.template());
+        return this;
 	    }
 
 	});

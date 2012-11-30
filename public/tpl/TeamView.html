@@ -18,6 +18,7 @@
           <th>Ranking</th>
           <th>Action</th>
         </tr>
+        <!-- List the teams in the db based on the team collection passed into template -->
         <% collection.each(function(team) { %>
         <tr>
           <td class="team-id"><%= team.get('_id') %></td>
