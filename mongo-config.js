@@ -107,7 +107,7 @@ exports.deleteTeamById = function (req, res){
       team.remove(function (err) {
         if (!err) {
           console.log("Team removed");
-          res.send('');
+          res.send('Team removed');
         } else {
           console.log(err);
         }

@@ -53,9 +53,18 @@ define([
 	    	$(ev.target).parents('tr').remove();
 
 	    	//Get the Team ID
-	    	var teamId = parseInt($(ev.target).parents('td').siblings('.team-id').html());
+	    	var teamId = $(ev.target).parents('td').siblings('.team-id').html();
 
-	    	//Ajax call to the delete webservice (include ID in url)
+	    	//Get the model with specific ID from the collection
+	    	var model = this.collection.get(teamId);
+	    	
+	    	//Destroys the model
+	    	model.destroy({success:function(model, response) {
+	    		console.log('Success!');
+	    	}});
+
+	    	//Ajax call to the delete webservice (include ID in url) - AJAX way to delete the team
+	    	/*
 		    jQuery.ajax({
 		      url: '/webservices/teams/' + $(ev.target).parents('td').siblings('.team-id').html(), 
 		      type: "DELETE",
@@ -66,6 +75,7 @@ define([
 		          console.dir(jqXHR); 
 		      }
 		    });
+				*/
 	    }
 
 	});
